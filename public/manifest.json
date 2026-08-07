@@ -1,0 +1,13 @@
+{
+  "name": "Polish — AI Resume Builder",
+  "short_name": "Polish",
+  "description": "Write the resume you'd actually read.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#11151D",
+  "theme_color": "#11151D",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
