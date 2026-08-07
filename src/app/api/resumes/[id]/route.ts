@@ -4,46 +4,84 @@ import Resume from "@/models/Resume";
 import { requireAuth } from "@/lib/require-auth";
 import { calcAtsScore } from "@/lib/ats";
 
-interface Params {
-  params: { id: string };
+interface RouteContext {
+  params: Promise<{
+    id: string;
+  }>;
 }
 
-export async function GET(req: NextRequest, { params }: Params) {
+export async function GET(
+  req: NextRequest,
+  { params }: RouteContext
+) {
   const auth = await requireAuth(req);
   if (auth instanceof NextResponse) return auth;
 
+  const { id } = await params;
+
   await connectDB();
-  const resume = await Resume.findOne({ _id: params.id, userId: auth.userId });
-  if (!resume) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  const resume = await Resume.findOne({
+    _id: id,
+    userId: auth.userId,
+  });
+
+  if (!resume) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
 
   return NextResponse.json({ resume });
 }
 
-export async function PATCH(req: NextRequest, { params }: Params) {
+export async function PATCH(
+  req: NextRequest,
+  { params }: RouteContext
+) {
   const auth = await requireAuth(req);
   if (auth instanceof NextResponse) return auth;
 
+  const { id } = await params;
   const updates = await req.json();
+
   await connectDB();
 
-  const resume = await Resume.findOne({ _id: params.id, userId: auth.userId });
-  if (!resume) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  const resume = await Resume.findOne({
+    _id: id,
+    userId: auth.userId,
+  });
+
+  if (!resume) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
 
   Object.assign(resume, updates);
   resume.atsScore = calcAtsScore(resume).score;
   resume.version += 1;
+
   await resume.save();
 
   return NextResponse.json({ resume });
 }
 
-export async function DELETE(req: NextRequest, { params }: Params) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: RouteContext
+) {
   const auth = await requireAuth(req);
   if (auth instanceof NextResponse) return auth;
 
+  const { id } = await params;
+
   await connectDB();
-  const result = await Resume.deleteOne({ _id: params.id, userId: auth.userId });
-  if (result.deletedCount === 0) return NextResponse.json({ error: "Not found" }, { status: 404 });
+
+  const result = await Resume.deleteOne({
+    _id: id,
+    userId: auth.userId,
+  });
+
+  if (result.deletedCount === 0) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
 
   return NextResponse.json({ success: true });
 }
