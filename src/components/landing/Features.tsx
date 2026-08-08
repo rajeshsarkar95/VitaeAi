@@ -36,8 +36,8 @@ function Features() {
   ];
 
   return (
-    <section id="features" className="relative overflow-hidden bg-slate-50 py-28 text-slate-900 lg:py-36">
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[700px] w-full max-w-7xl -translate-x-1/2 opacity-60 blur-[140px]">
+    <section id="features" className="relative overflow-hidden bg-slate-50  text-slate-900 lg:py-10">
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[500px] w-full max-w-7xl -translate-x-1/2 opacity-60 blur-[140px]">
         <div className="h-full w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-200 via-indigo-100 to-transparent" />
       </div>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#00000006_1px,transparent_1px),linear-gradient(to_bottom,#00000006_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
@@ -170,26 +170,21 @@ function Features() {
               Our language model evaluates industry-specific metric impact, verbs, and keywords against thousands of verified job descriptions.
             </p>
           </div>
-
-          {/* Bento Card 2: Executive Layouts Studio (5 Cols) */}
           <div className="relative flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-8 shadow-xl shadow-slate-200/50 lg:col-span-5 lg:p-10">
             <div>
               <div className="flex items-center justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-600 text-white shadow-lg shadow-violet-500/25">
-                  <LayoutTemplate size={22} />
+                  <LayoutTemplate size={22}/>
                 </div>
                 <span className="rounded-full bg-violet-50 border border-violet-100 px-3 py-1 text-xs font-bold text-violet-700">
                   50+ C-Suite Layouts
                 </span>
               </div>
-
               <h3 className="mt-6 text-2xl font-extrabold text-slate-900">Battle-Tested Templates</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 Designed alongside fortune-500 recruiters. Formatted to pass ATS parsing checks while maintaining executive visual elegance.
               </p>
             </div>
-
-            {/* Template Card Showcase Mockup */}
             <div className="mt-8 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4">
               <div className="space-y-2">
                 <div className="h-3 w-1/3 rounded bg-slate-800" />
@@ -226,7 +221,6 @@ function Features() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

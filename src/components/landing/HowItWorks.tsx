@@ -37,7 +37,7 @@ function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900 pb-24 pt-12 lg:pb-36 lg:pt-16">
+    <section className="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900 pb-24  lg:pb-36 lg:pt-16">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap');
 
@@ -90,7 +90,6 @@ function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="hero-sans lg:col-span-7"
         >
-          {/* Executive Trust Badge */}
           <div className="inline-flex items-center gap-2.5 rounded-full border border-violet-200 bg-violet-50/80 px-4 py-1.5 text-xs font-semibold tracking-wide text-violet-900 shadow-sm backdrop-blur-xl">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-500 opacity-75" />
@@ -100,21 +99,15 @@ function Hero() {
             <span className="h-3 w-[1px] bg-violet-200" />
             <span className="text-violet-700">v3.0 Release</span>
           </div>
-
-          {/* Main Headline */}
           <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-[5rem] lg:leading-[1.06]">
             Craft a resume that commands{" "}
             <span className="hero-serif italic font-normal bg-gradient-to-r from-violet-700 via-indigo-600 to-purple-800 bg-clip-text text-transparent">
               attention.
             </span>
           </h1>
-
-          {/* Subtitle */}
           <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
             Engineered for ambitious professionals. Transform your career trajectory with AI-driven content refinement, instant ATS optimization, and recruiter-approved layouts.
           </p>
-
-          {/* Key Feature Pills */}
           <div className="mt-6 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-medium text-slate-700">
             {features.map((item) => (
               <div key={item} className="flex items-center gap-2">
@@ -123,8 +116,6 @@ function Hero() {
               </div>
             ))}
           </div>
-
-          {/* CTAs */}
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#"
@@ -482,10 +473,7 @@ function Features() {
               </div>
             </div>
           </div>
-
         </div>
-
-        {/* Secondary Grid */}
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {standardFeatures.map((f) => (
             <div key={f.title} className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl hover:shadow-violet-500/10">
@@ -502,11 +490,6 @@ function Features() {
     </section>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/* 4. HOW IT WORKS SECTION                                                    */
-/* -------------------------------------------------------------------------- */
-
 function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 

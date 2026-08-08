@@ -16,7 +16,7 @@ import Footer from "./Footer";
 export function LandingPage() {
   return (
     <main >
-      <div className="min-h-screen bg-background text-foreground">
+      <div >
         <Navbar />
         <Hero />
         <LogoCloud />
